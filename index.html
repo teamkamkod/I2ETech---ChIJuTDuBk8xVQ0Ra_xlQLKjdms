@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I2ETech — Électricien — Pompignac</title>
+  <meta name="description" content="I2ETech, votre électricien de confiance à Pompignac, Gironde. Services professionnels et réactifs pour tous vos besoins électriques." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #1A237E;
+      --secondary: #FFC107;
+      --background: #F5F7FA;
+      --text: #222B45;
+      --cta: #FF6F00;
+      --radius: 4px;
+      --font-heading: 'Roboto', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+      --section-padding: 64px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--background);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: var(--font-heading); }
+
+    img { max-width: 100%; display: block; }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ── NAV ── */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: var(--primary);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      height: 60px;
+    }
+
+    .nav-brand {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.3rem;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    .nav-brand span { color: var(--secondary); }
+
+    .nav-links {
+      display: none;
+      list-style: none;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.88);
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--secondary); }
+
+    .hamburger {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: var(--primary);
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      z-index: 999;
+      padding: 16px 20px 24px;
+      gap: 0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      color: rgba(255,255,255,0.9);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    @media (min-width: 768px) {
+      .hamburger { display: none; }
+      .nav-links { display: flex; }
+      .mobile-menu { display: none !important; }
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 60px;
+      background: var(--primary);
+    }
+
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      min-height: calc(100vh - 60px);
+    }
+
+    .hero-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 48px 20px 32px;
+      background: var(--primary);
+    }
+
+    .hero-text .badge {
+      display: inline-block;
+      background: var(--secondary);
+      color: var(--primary);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: var(--radius);
+      margin-bottom: 20px;
+      width: fit-content;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(1.6rem, 5vw, 3.8rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .hero-text h1 em {
+      color: var(--secondary);
+      font-style: normal;
+    }
+
+    .hero-text p {
+      font-size: clamp(0.9rem, 2.5vw, 1.15rem);
+      color: rgba(255,255,255,0.82);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .btn-primary {
+      background: var(--cta);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.2s, transform 0.2s;
+      width: 100%;
+    }
+
+    .btn-primary:hover { background: #e65100; transform: translateY(-1px); }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 13px 28px;
+      border-radius: var(--radius);
+      border: 2px solid rgba(255,255,255,0.5);
+      cursor: pointer;
+      text-align: center;
+      transition: border-color 0.2s, background 0.2s;
+      width: 100%;
+    }
+
+    .btn-secondary:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+    .hero-image {
+      width: 100%;
+      max-height: 240px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    @media (min-width: 768px) {
+      .hero-inner {
+        flex-direction: row;
+      }
+
+      .hero-text {
+        flex: 1;
+        padding: 64px 48px 64px 64px;
+      }
+
+      .hero-image {
+        flex: 1;
+        max-height: none;
+        min-height: calc(100vh - 60px);
+      }
+
+      .hero-ctas {
+        flex-direction: row;
+        width: auto;
+      }
+
+      .btn-primary, .btn-secondary {
+        width: auto;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-text { padding: 80px 64px 80px 96px; }
+    }
+
+    /* ── SECTIONS COMMON ── */
+    section {
+      padding: 48px 16px;
+    }
+
+    @media (min-width: 768px) {
+      section { padding: var(--section-padding) 24px; }
+    }
+
+    @media (min-width: 1024px) {
+      section { padding: var(--section-padding) 80px; }
+    }
+
+    .section-title {
+      font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: #555;
+      text-align: center;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .section-divider {
+      width: 56px;
+      height: 4px;
+      background: var(--secondary);
+      border-radius: 2px;
+      margin: 0 auto 32px;
+    }
+
+    /* ── SERVICES ── */
+    #services { background: #fff; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 600px) {
+      .services-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (min-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .service-card {
+      background: var(--background);
+      border-radius: var(--radius);
+      padding: 28px 22px;
+      border-left: 4px solid var(--secondary);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(26,35,126,0.1);
+    }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+
+    .service-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      font-size: 0.88rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* ── ZONE INTERVENTION ── */
+    #zone-intervention { background: var(--primary); }
+
+    #zone-intervention .section-title { color: #fff; }
+    #zone-intervention .section-subtitle { color: rgba(255,255,255,0.75); }
+
+    .zone-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .zone-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+
+    .zone-tag {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: var(--radius);
+      padding: 8px 16px;
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+
+    .zone-tag.highlight {
+      background: var(--secondary);
+      color: var(--primary);
+      border-color: var(--secondary);
+      font-weight: 700;
+    }
+
+    .zone-map {
+      border-radius: var(--radius);
+      overflow: hidden;
+      width: 100%;
+      height: 300px;
+      border: 3px solid rgba(255,255,255,0.15);
+    }
+
+    .zone-map iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @media (min-width: 768px) {
+      .zone-map { height: 380px; }
+    }
+
+    /* ── AVIS CLIENTS ── */
+    #avis-clients { background: var(--background); }
+
+    .reviews-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .rating-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      border: 2px solid var(--secondary);
+      border-radius: var(--radius);
+      padding: 10px 20px;
+    }
+
+    .rating-stars { color: var(--secondary); font-size: 1.2rem; letter-spacing: 2px; }
+    .rating-score { font-family: var(--font-heading); font-weight: 700; font-size: 1.3rem; color: var(--primary); }
+    .rating-count { font-size: 0.82rem; color: #777; }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .review-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .review-stars { color: var(--secondary); font-size: 1rem; letter-spacing: 1px; }
+
+    .review-text {
+      font-size: 0.88rem;
+      color: #444;
+      line-height: 1.65;
+      flex: 1;
+      font-style: italic;
+    }
+
+    .review-author {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--primary);
+    }
+
+    /* ── PRESENTATION ── */
+    #presentation { background: #fff; }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .about-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    .about-text h2 {
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .about-text p {
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .about-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .about-highlight {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .about-highlight::before {
+      content: '✓';
+      background: var(--secondary);
+      color: var(--primary);
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .about-image {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(26,35,126,0.12);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    /* ── DEVIS RAPIDE ── */
+    #devis-rapide { background: var(--secondary); }
+
+    .devis-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #devis-rapide .section-title { color: var(--primary); }
+    #devis-rapide .section-subtitle { color: rgba(26,35,126,0.75); }
+    #devis-rapide .section-divider { background: var(--primary); }
+
+    .devis-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    @media (min-width: 600px) {
+      .devis-features { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .devis-feature {
+      background: rgba(255,255,255,0.35);
+      border-radius: var(--radius);
+      padding: 16px 10px;
+      text-align: center;
+    }
+
+    .devis-feature .icon { font-size: 1.6rem; margin-bottom: 6px; }
+    .devis-feature span { font-size: 0.8rem; font-weight: 600; color: var(--primary); }
+
+    .btn-devis {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 16px 40px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      width: 100%;
+    }
+
+    .btn-devis:hover { background: #0d1757; transform: translateY(-2px); }
+
+    @media (min-width: 600px) {
+      .btn-devis { width: auto; }
+    }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--background); }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .contact-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    .contact-info h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .contact-item-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-item-text {
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    .contact-item-text strong {
+      display: block;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .contact-item-text a { color: var(--cta); font-weight: 600; }
+
+    .contact-form-wrap { background: #fff; border-radius: var(--radius); padding: 28px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); }
+
+    .contact-form-wrap h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .contact-form-wrap p {
+      font-size: 0.85rem;
+      color: #777;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .form-group { margin-bottom: 16px; }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid #dde1ea;
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--text);
+      background: #fafbfc;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--primary); background: #fff; }
+
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--cta);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-submit:hover { background: #e65100; transform: translateY(-1px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111827;
+      color: rgba(255,255,255,0.75);
+      padding: 48px 20px 24px;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .footer-inner { grid-template-columns: 2fr 1fr 1fr; }
+    }
+
+    .footer-brand .name {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .footer-brand .name span { color: var(--secondary); }
+
+    .footer-brand p {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .footer-rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius);
+      padding: 8px 14px;
+    }
+
+    .footer-rating .stars { color: var(--secondary); font-size: 0.95rem; }
+    .footer-rating .score { font-weight: 700; color: #fff; font-size: 0.95rem; }
+    .footer-rating .count { font-size: 0.78rem; color: rgba(255,255,255,0.55); }
+
+    .footer-col h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 8px; }
+    .footer-col ul li a { font-size: 0.85rem; color: rgba(255,255,255,0.65); transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--secondary); }
+
+    .footer-col p { font-size: 0.85rem; line-height: 1.65; }
+    .footer-col a { color: var(--secondary); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 40px;
+      padding-top: 20px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-in {
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .fade-in.visible { opacity: 1; }
+
+    /* ── MODAL ── */
+    #purchase-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.72);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    #purchase-modal.open { display: flex; }
+
+    .modal-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 32px;
+      width: 90%;
+      max-width: 420px;
+      position: relative;
+      animation: fadeInModal 0.2s ease;
+    }
+
+    @keyframes fadeInModal {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      color: #888;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .modal-close:hover { color: #333; }
+
+    .modal-card h2 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 14px;
+      padding-right: 24px;
+    }
+
+    .modal-card p {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .modal-cta {
+      display: block;
+      width: 100%;
+      background: var(--cta);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.2s;
+    }
+
+    .modal-cta:hover { background: #e65100; }
+
+    .modal-note {
+      font-size: 0.78rem !important;
+      color: #999 !important;
+      text-align: center;
+      margin-top: 12px !important;
+      margin-bottom: 0 !important;
+    }
+
+    /* ── GALLERY ── */
+    #gallery { background: #fff; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 600px) {
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .gallery-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.04); }
+
+    .gallery-caption {
+      text-align: center;
+      font-size: 0.88rem;
+      color: #777;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" role="navigation" aria-label="Navigation principale">
+    <div class="nav-brand">I2E<span>Tech</span></div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#zone-intervention">Zone</a></li>
+      <li><a href="#avis-clients">Avis</a></li>
+      <li><a href="#presentation">À propos</a></li>
+      <li><a href="#devis-rapide">Devis</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu" role="menu">
+    <a href="#services" role="menuitem">Services</a>
+    <a href="#zone-intervention" role="menuitem">Zone d'intervention</a>
+    <a href="#avis-clients" role="menuitem">Avis clients</a>
+    <a href="#presentation" role="menuitem">À propos</a>
+    <a href="#devis-rapide" role="menuitem">Devis rapide</a>
+    <a href="#contact" role="menuitem">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero" aria-label="Accueil">
+    <div class="hero-inner">
+      <div class="hero-text fade-in">
+        <div class="badge">Électricien certifié — Gironde</div>
+        <h1>Électricien professionnel à <em>Pompignac</em></h1>
+        <p>Interventions rapides et fiables en Gironde et Nouvelle-Aquitaine</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn-primary">Demander un devis</a>
+          <a href="#services" class="btn-secondary">En savoir plus</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img
+          src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photo_reference=Ab43m-ugTA2YlBAn2cf53qngOFectq-Ak4EqZ_or3F8HHA1biJZ6TSVzeVcV7mT9v6GiBGgnsnM37DqdoTuCI4xp6p2fOiowsguuvWYyfAjB4p4_Vsn0w_DxGVZxsKkpjcdlTFpB1yhBvinEGyoj34DOMBSGrqA-oc2ZIr9BtmmQMq8Guy3S3Ty8QDZL5Tsn-LUB4fTGWwT3XUtIOBAsW1PbWnRAblO7Hy_Glzw0JVHLmfF4qlJSpHxOWNAv6DMDJnyUXkC-QHXbpem0voLiOXAZERppbjp09JO2m8QGptWNFcLH_A&key=AIzaSyCd8_Lzx6EPWwnELP47YrOwKzAMK9CV9fc"
+          alt="I2ETech — Électricien professionnel à Pompignac"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" aria-label="Nos services">
+    <h2 class="section-title fade-in">Nos Services</h2>
+    <div class="section-divider fade-in"></div>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon">⚡</div>
+        <h3>Dépannage électrique urgent</h3>
+        <p>Interventions rapides pour résoudre vos urgences électriques.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">🔌</div>
+        <h3>Installation électrique</h3>
+        <p>Mise en place de systèmes électriques modernes et sécurisés.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">📋</div>
+        <h3>Mise aux normes</h3>
+        <p>Assurez-vous que vos installations respectent les dernières normes de sécurité.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">🏠</div>
+        <h3>Domotique</h3>
+        <p>Intégrez la technologie intelligente dans votre maison pour plus de confort.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZONE INTERVENTION -->
+  <section id="zone-intervention" aria-label="Zone d'intervention">
+    <div class="zone-inner">
+      <h2 class="section-title fade-in">Zone d'Intervention</h2>
+      <div class="section-divider fade-in" style="background:#FFC107;"></div>
+      <p class="section-subtitle fade-in">Nous intervenons à Pompignac et dans toute la Gironde, ainsi qu'en Nouvelle-Aquitaine pour vos projets électriques.</p>
+      <div class="zone-tags fade-in">
+        <span class="zone-tag highlight">Pompignac</span>
+        <span class="zone-tag">Bordeaux</span>
+        <span class="zone-tag">Mérignac</span>
+        <span class="zone-tag">Pessac</span>
+        <span class="zone-tag">Libourne</span>
+        <span class="zone-tag">Gironde (33)</span>
+        <span class="zone-tag">Nouvelle-Aquitaine</span>
+      </div>
+      <div class="zone-map fade-in">
+        <iframe
+          src="https://maps.google.com/maps?q=44.867283199999996,-0.4383785&z=16&output=embed"
+          title="Localisation I2ETech — Pompignac"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVIS CLIENTS -->
+  <section id="avis-clients" aria-label="Avis clients">
+    <h2 class="section-title fade-in">Avis Clients</h2>
+    <div class="section-divider fade-in"></div>
+    <div class="reviews-header fade-in">
+      <div class="rating-badge">
+        <span class="rating-stars">★★★★★</span>
+        <span class="rating-score">5 / 5</span>
+        <span class="rating-count">9 avis Google</span>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card fade-in">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« C'est la 3ème fois que je fais appel à la société I2ETech. La première fois pour refaire un tableau électrique complet, puis pour l'ajout de 2 prises et enfin il y a 15 jours pour... »</p>
+        <div class="review-author">Yohann Pigeard</div>
+      </div>
+      <div class="review-card fade-in">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Je suis pleinement satisfait des services de l'entreprise I2Etech pour son professionnalisme, son expertise rapide, avec un rapport qualité / prix de sa prestation me donnant entière... »</p>
+        <div class="review-author">Arnaud Patrice</div>
+      </div>
+      <div class="review-card fade-in">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Dans le cadre de la renovation de notre maison, Monsieur Michaud a répondu a toutes nos attentes. Professionel, ponctuel, conseil avisé et excellent rapport qualité prix. A contacter pour... »</p>
+        <div class="review-author">Kévin Cougnon</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESENTATION -->
+  <section id="presentation" aria-label="À propos de I2ETech">
+    <div class="about-inner">
+      <div class="about-text fade-in">
+        <h2>À propos de I2ETech</h2>
+        <p>I2ETech est votre partenaire de confiance pour tous vos besoins électriques à Pompignac et ses environs. Nous offrons des devis en ligne pour vous simplifier la vie et garantir une réactivité optimale. Bien que nous ne proposions pas de services sur place, notre expertise et notre professionnalisme sont à votre disposition pour des solutions électriques sur mesure.</p>
+        <div class="about-highlights">
+          <div class="about-highlight">Devis en ligne rapide et gratuit</div>
+          <div class="about-highlight">Expertise reconnue en Gironde</div>
+          <div class="about-highlight">Solutions électriques sur mesure</div>
+          <div class="about-highlight">Réactivité et professionnalisme garantis</div>
+        </div>
+      </div>
+      <div class="about-image fade-in">
+        <img
+          src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photo_reference=Ab43m-v2Y9S5-GAD6vWZ5Em0z5dpXGmcrmC62V_iU5m__8gf-nslYXqAffNeEsFm3PLI4zAt5_neiGKs4TuUzQF-KfTY6fdwpwixtr7RZ23XuLdbXPt0xW88jRaiU8d2r8nWjQeVmmg0O3yGoCgJS7cWhg-RXGbwTJ20dj9Bs9XiycbfidGqaiBeIPbKguTy2JiFdYyPRupxqpER8Aa606uE77tbZ8zRFtC-FXTWlA2fkFy8s0Bw6igK8xSUhlTj5y_CQSDjQmXla5TDv1g3VIO3cufyA7IJwhjkPRX6_p7jmxoWzw&key=AIzaSyCd8_Lzx6EPWwnELP47YrOwKzAMK9CV9fc"
+          alt="Réalisation I2ETech — Installation électrique"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" aria-label="Nos réalisations">
+    <h2 class="section-title fade-in">Nos Réalisations</h2>
+    <div class="section-divider fade-in"></div>
+    <div class="gallery-grid">
+      <div class="gallery-item fade-in">
+        <img
+          src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photo_reference=Ab43m-v2Y9S5-GAD6vWZ5Em0z5dpXGmcrmC62V_iU5m__8gf-nslYXqAffNeEsFm3PLI4zAt5_neiGKs4TuUzQF-KfTY6fdwpwixtr7RZ23XuLdbXPt0xW88jRaiU8d2r8nWjQeVmmg0O3yGoCgJS7cWhg-RXGbwTJ20dj9Bs9XiycbfidGqaiBeIPbKguTy2JiFdYyPRupxqpER8Aa606uE77tbZ8zRFtC-FXTWlA2fkFy8s0Bw6igK8xSUhlTj5y_CQSDjQmXla5TDv1g3VIO3cufyA7IJwhjkPRX6_p7jmxoWzw&key=AIzaSyCd8_Lzx6EPWwnELP47YrOwKzAMK9CV9fc"
+          alt="Réalisation I2ETech 1"
+          loading="lazy"
+        />
+      </div>
+      <div class="gallery-item fade-in">
+        <img
+          src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photo_reference=Ab43m-tN-rxHC8ow2X5MBS76_pHoQ8RrqQDOsFOSWlOzAmGCUx7MOGhTzq2-to2r_OOJdPgTyDZKMoKiifvkc2fvaz_xzIwk-LLBtxCn7lsYFiuDTT_RJaq-9cgfLf3yVxJ9B_OlulMnmD2Iq2AI454IbNJQErrZGon1g7_Zk-4bi-n3fj3lkEcFpAfUoANPdKqJWzYGG5AvdUQd6g1Pd75nClKZleUkq7HpwM0aqfhcrgbgk7Yr82aTCQ5fBMINlvO5b4gXBsSQxL08sn9-mW4DM8lTe8PlC106ppMCYecPi0Wwlw&key=AIzaSyCd8_Lzx6EPWwnELP47YrOwKzAMK9CV9fc"
+          alt="Réalisation I2ETech 2"
+          loading="lazy"
+        />
+      </div>
+      <div class="gallery-item fade-in">
+        <img
+          src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photo_reference=Ab43m-ugTA2YlBAn2cf53qngOFectq-Ak4EqZ_or3F8HHA1biJZ6TSVzeVcV7mT9v6GiBGgnsnM37DqdoTuCI4xp6p2fOiowsguuvWYyfAjB4p4_Vsn0w_DxGVZxsKkpjcdlTFpB1yhBvinEGyoj34DOMBSGrqA-oc2ZIr9BtmmQMq8Guy3S3Ty8QDZL5Tsn-LUB4fTGWwT3XUtIOBAsW1PbWnRAblO7Hy_Glzw0JVHLmfF4qlJSpHxOWNAv6DMDJnyUXkC-QHXbpem0voLiOXAZERppbjp09JO2m8QGptWNFcLH_A&key=AIzaSyCd8_Lzx6EPWwnELP47YrOwKzAMK9CV9fc"
+          alt="Réalisation I2ETech 3"
+          loading="lazy"
+        />
+      </div>
+    </div>
+    <p class="gallery-caption fade-in">Découvrez nos projets récents en Gironde et Nouvelle-Aquitaine.</p>
+  </section>
+
+  <!-- DEVIS RAPIDE -->
+  <section id="devis-rapide" aria-label="Devis rapide">
+    <div class="devis-inner">
+      <h2 class="section-title fade-in">Obtenez Votre Devis Gratuit</h2>
+      <div class="section-divider fade-in"></div>
+      <p class="section-subtitle fade-in">Rapide, sans engagement, et 100 % en ligne. Nous vous répondons dans les plus brefs délais.</p>
+      <div class="devis-features fade-in">
+        <div class="devis-feature">
+          <div class="icon">⚡</div>
+          <span>Réponse rapide</span>
+        </div>
+        <div class="devis-feature">
+          <div class="icon">💶</div>
+          <span>Gratuit</span>
+        </div>
+        <div class="devis-feature">
+          <div class="icon">🔒</div>
+          <span>Sans engagement</span>
+        </div>
+        <div class="devis-feature">
+          <div class="icon">📱</div>
+          <span>100 % en ligne</span>
+        </div>
+      </div>
+      <a href="#contact" class="btn-devis fade-in">Demander un devis maintenant</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" aria-label="Contactez-nous">
+    <h2 class="section-title fade-in">Contactez-nous</h2>
+    <div class="section-divider fade-in"></div>
+    <div class="contact-inner">
+      <div class="contact-info fade-in">
+        <h3>Nos Coordonnées</h3>
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div class="contact-item-text">
+            <strong>Adresse</strong>
+            3 bis Chem. de Gachet<br>33370 Pompignac, France
+            <br><a href="https://maps.google.com/maps?q=44.867283199999996,-0.4383785&z=16" target="_blank" rel="noopener">Voir sur Google Maps</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div class="contact-item-text">
+            <strong>Téléphone</strong>
+            <a href="tel:+33618003629">+33 6 18 00 36 29</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">⏰</div>
+          <div class="contact-item-text">
+            <strong>Disponibilité</strong>
+            Contactez-nous pour connaître nos disponibilités. Devis en ligne disponible à tout moment.
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">⭐</div>
+          <div class="contact-item-text">
+            <strong>Note Google</strong>
+            ★★★★★ 5/5 — 9 avis clients vérifiés
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap fade-in">
+        <h3>Envoyez-nous un message</h3>
+        <p>Pour toute demande, veuillez nous appeler ou remplir notre formulaire en ligne.</p>
+        <form id="contact-form" action="#" novalidate>
+          <div class="form-group">
+            <label for="name">Nom complet *</label>
+            <input type="text" id="name" name="name" placeholder="Votre nom" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Adresse e-mail *</label>
+            <input type="email" id="email" name="email" placeholder="votre@email.fr" required />
+          </div>
+          <div class="form-group">
+            <label for="phone-field">Téléphone</label>
+            <input type="tel" id="phone-field" name="phone" placeholder="+33 6 XX XX XX XX" />
+          </div>
+          <div class="form-group">
+            <label for="service">Type de service</label>
+            <select id="service" name="service">
+              <option value="">Sélectionnez un service</option>
+              <option value="depannage">Dépannage électrique urgent</option>
+              <option value="installation">Installation électrique</option>
+              <option value="normes">Mise aux normes</option>
+              <option value="domotique">Domotique</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" placeholder="Décrivez votre besoin..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Envoyer ma demande</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="name">I2E<span>Tech</span></div>
+        <p>Votre électricien de confiance à Pompignac, Gironde. Interventions rapides et professionnelles en Nouvelle-Aquitaine.</p>
+        <div class="footer-rating">
+          <span class="stars">★★★★★</span>
+          <span class="score">5 / 5</span>
+          <span class="count">9 avis Google</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#services">Nos Services</a></li>
+          <li><a href="#zone-intervention">Zone d'intervention</a></li>
+          <li><a href="#avis-clients">Avis clients</a></li>
+          <li><a href="#presentation">À propos</a></li>
+          <li><a href="#devis-rapide">Devis rapide</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>
+          3 bis Chem. de Gachet<br>
+          33370 Pompignac, France<br><br>
+          <a href="tel:+33618003629">+33 6 18 00 36 29</a><br><br>
+          <a href="https://maps.google.com/maps?q=44.867283199999996,-0.4383785&z=16" target="_blank" rel="noopener">Voir sur Google Maps →</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 I2ETech — Électricien à Pompignac, Gironde. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div id="purchase-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close" aria-label="Fermer">×</button>
+      <h2 id="modal-title">Votre demande est presque envoyée !</h2>
+      <p>
+        Merci pour votre intérêt envers I2ETech. Pour activer l'envoi de votre formulaire et bénéficier d'une réponse personnalisée de notre équipe, une étape supplémentaire est nécessaire.
+        <br><br>
+        Cliquez sur le bouton ci-dessous pour finaliser votre demande et être mis en relation avec notre équipe dans les plus brefs délais.
+      </p>
+      <a
+        href="mailto:team@kamkod.com?subject=Website%20I2ETech%20%E2%80%94%20ChIJuTDuBk8xVQ0Ra_xlQLKjdms"
+        class="modal-cta"
+        id="modal-cta"
+      >
+        Finaliser ma demande de devis
+      </a>
+      <p class="modal-note">Vous serez redirigé vers votre client e-mail pour confirmer votre demande.</p>
+    </div>
+  </div>
+
+  <script>
+    // ── HAMBURGER MENU ──
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // ── SMOOTH SCROLL ──
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const offset = 64;
+          const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ── FADE-IN ON SCROLL ──
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    fadeEls.forEach(el => observer.observe(el));
+
+    // ── CONTACT FORM MODAL ──
+    const modal = document.getElementById('purchase-modal');
+    const modalClose = document.getElementById('modal-close');
+    const contactForm = document.getElementById('contact-form');
+
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    modalClose.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+
+    // ── NAVBAR SCROLL EFFECT ──
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.25)';
+      } else {
+        navbar.style.boxShadow = '0 2px 12px rgba(0,0,0,0.18)';
+      }
+    });
+  </script>
+</body>
+</html>
